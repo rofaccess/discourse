@@ -34,6 +34,8 @@ development:
 %>
 
 test:
+  username: liri
+  password: liri
   prepared_statements: false
   adapter: postgresql
   database: <%= test_db %>
