@@ -62,3 +62,6 @@ openapi/*
 
 # Ignore RubyMine files
 /.idea/
+
+# Ignore Liri files
+/liri/
