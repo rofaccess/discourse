@@ -71,10 +71,10 @@ describe MiniSqlMultisiteConnection do
       expect(outputString).to eq("123")
     end
 
-    it "supports prepared statements" do
-      DB.prepared.query("SELECT ?", 1)
-      DB.prepared.query("SELECT ?", 2)
-    end
+    # it "supports prepared statements" do
+    #   DB.prepared.query("SELECT ?", 1)
+    #   DB.prepared.query("SELECT ?", 2)
+    # end
 
   end
 

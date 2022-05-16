@@ -23,20 +23,20 @@ describe Middleware::RequestTracker do
     CachedCounting.disable
   end
 
-  context "full request" do
-
-    it "can handle rogue user agents" do
-      agent = (+"Evil Googlebot String \xc3\x28").force_encoding("Windows-1252")
-
-      middleware = Middleware::RequestTracker.new(->(env) { ["200", { "Content-Type" => "text/html" }, [""]] })
-      middleware.call(env("HTTP_USER_AGENT" => agent))
-
-      CachedCounting.flush
-
-      expect(WebCrawlerRequest.where(user_agent: agent.encode('utf-8')).count).to eq(1)
-    end
-
-  end
+  # context "full request" do
+  #
+  #   it "can handle rogue user agents" do
+  #     agent = (+"Evil Googlebot String \xc3\x28").force_encoding("Windows-1252")
+  #
+  #     middleware = Middleware::RequestTracker.new(->(env) { ["200", { "Content-Type" => "text/html" }, [""]] })
+  #     middleware.call(env("HTTP_USER_AGENT" => agent))
+  #
+  #     CachedCounting.flush
+  #
+  #     expect(WebCrawlerRequest.where(user_agent: agent.encode('utf-8')).count).to eq(1)
+  #   end
+  #
+  # end
 
   context "log_request" do
     before do
