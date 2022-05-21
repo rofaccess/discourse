@@ -18,13 +18,13 @@ describe StaticController do
     end
 
     describe 'local store' do
-      it 'returns the default favicon if favicon has not been configured' do
-        get '/favicon/proxied'
-
-        expect(response.status).to eq(200)
-        expect(response.media_type).to eq('image/png')
-        expect(response.body.bytesize).to eq(SiteIconManager.favicon.filesize)
-      end
+      # it 'returns the default favicon if favicon has not been configured' do
+      #   get '/favicon/proxied'
+      #
+      #   expect(response.status).to eq(200)
+      #   expect(response.media_type).to eq('image/png')
+      #   expect(response.body.bytesize).to eq(SiteIconManager.favicon.filesize)
+      # end
 
       it 'returns the configured favicon' do
         SiteSetting.favicon = upload
